@@ -3,10 +3,12 @@ const generateArr = until.generateArr;
 
 const selectionSort = require("../src/selection-sort");
 const insertionSort = require("../src/insertion-sort");
+const bubbleSort = require("../src/bubble-sort")
 
 const sortArr = [
   { name: "选择排序", fn: selectionSort },
-  { name: "插入排序", fn: insertionSort }
+  { name: "插入排序", fn: insertionSort },
+  { name: "冒泡排序", fn: bubbleSort },
 ];
 const greater = function(a, b) {
   return a - b;
