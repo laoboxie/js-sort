@@ -1,0 +1,25 @@
+{
+  "name": "js-sort",
+  "version": "1.0.0",
+  "description": "javascript的排序算法实现",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laoboxie/js-sort.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laoboxie/js-sort/issues"
+  },
+  "homepage": "https://github.com/laoboxie/js-sort#readme",
+  "devDependencies": {
+    "jest": "^25.2.3"
+  }
+}
