@@ -1,5 +1,16 @@
+/*
+  时间复杂度  O(n^2)
+  空间复杂度  O(1)
+*/
+
+const until = require("./until");
+const validateParams = until.validateParams;
+const defaultCompare = until.defaultCompare;
+const swap = until.swap;
+
 function selectionSort(arr, compare) {
-  compare = compare ? compare : defaultCompare;
+  validateParams(arr, compare);
+  compare = compare || defaultCompare;
   let len = arr.length;
   for (let i = 0; i < len; i++) {
     let frontIdx = i;
@@ -10,22 +21,6 @@ function selectionSort(arr, compare) {
     }
     swap(arr, i, frontIdx);
   }
-
-  function defaultCompare(a, b) {
-    if (a < b) {
-      return -1;
-    }
-    if (a > b) {
-      return 1;
-    }
-    return 0;
-  }
-
-  function swap(arr, i, j) {
-    let temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
-  }
 }
 
-module.exports = selectionSort
+module.exports = selectionSort;

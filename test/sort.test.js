@@ -1,9 +1,14 @@
-let helper = require("./helper");
-let generateArr = helper.generateArr;
-let selectionSort = require("../src/selection-sort");
+const until = require("./until");
+const generateArr = until.generateArr;
 
-let sortArr = [{ name: "选择排序", fn: selectionSort }];
-let greater = function(a, b) {
+const selectionSort = require("../src/selection-sort");
+const insertionSort = require("../src/insertion-sort");
+
+const sortArr = [
+  { name: "选择排序", fn: selectionSort },
+  { name: "插入排序", fn: insertionSort }
+];
+const greater = function(a, b) {
   return a - b;
 };
 
@@ -62,5 +67,32 @@ for (let i = 0; i < sortArr.length; i++) {
         expect(arr).toEqual(res);
       });
     }
+
+    test("空数组", () => {
+      let arr = [];
+      let res = arr.slice(0).sort(greater);
+      sort(arr);
+      expect(arr).toEqual(res);
+    });
+
+    test("单个元素", () => {
+      let arr = [0];
+      let res = arr.slice(0).sort(greater);
+      sort(arr);
+      expect(arr).toEqual(res);
+    });
+
+    test("两个元素", () => {
+      let arr = [5, 4];
+      let res = arr.slice(0).sort(greater);
+      sort(arr);
+      expect(arr).toEqual(res);
+    });
+
+    // test("非法参数 arr", () => {
+    //   let arr = null;
+    //   sort(arr);
+    //   expect(arr).toEqual(arr);
+    // });
   });
 }
