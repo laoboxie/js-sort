@@ -5,12 +5,14 @@ const selectionSort = require("../src/selection-sort");
 const insertionSort = require("../src/insertion-sort");
 const bubbleSort = require("../src/bubble-sort");
 const shellSort = require("../src/shell-sort");
+const mergeSort = require("../src/merge-sort");
 
 const sortArr = [
   { name: "选择排序", fn: selectionSort },
   { name: "插入排序", fn: insertionSort },
   { name: "冒泡排序", fn: bubbleSort },
-  { name: "希尔排序", fn: shellSort }
+  { name: "希尔排序", fn: shellSort },
+  { name: "归并排序", fn: mergeSort }
 ];
 const greater = function(a, b) {
   return a - b;
@@ -88,6 +90,20 @@ for (let i = 0; i < sortArr.length; i++) {
 
     test("两个元素", () => {
       let arr = [5, 4];
+      let res = arr.slice(0).sort(greater);
+      sort(arr);
+      expect(arr).toEqual(res);
+    });
+
+    test("有序数组", () => {
+      let arr = [-3, -2, -1, 0, 1, 2, 3, 4, 5, 6];
+      let res = arr.slice(0).sort(greater);
+      sort(arr);
+      expect(arr).toEqual(res);
+    });
+
+    test("近乎有序数组", () => {
+      let arr = [0, -3, -2, -1, 1, 2, 3, 4, 5, 6];
       let res = arr.slice(0).sort(greater);
       sort(arr);
       expect(arr).toEqual(res);
