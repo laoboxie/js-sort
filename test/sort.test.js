@@ -1,4 +1,4 @@
-const until = require("./until");
+const until = require("../src/until");
 const generateArr = until.generateArr;
 
 const selectionSort = require("../src/selection-sort");
@@ -6,13 +6,15 @@ const insertionSort = require("../src/insertion-sort");
 const bubbleSort = require("../src/bubble-sort");
 const shellSort = require("../src/shell-sort");
 const mergeSort = require("../src/merge-sort");
+const quickSort = require("../src/quick-sort");
 
 const sortArr = [
   { name: "选择排序", fn: selectionSort },
   { name: "插入排序", fn: insertionSort },
   { name: "冒泡排序", fn: bubbleSort },
   { name: "希尔排序", fn: shellSort },
-  { name: "归并排序", fn: mergeSort }
+  { name: "归并排序", fn: mergeSort },
+  { name: "快速排序", fn: quickSort }
 ];
 const greater = function(a, b) {
   return a - b;
