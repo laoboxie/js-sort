@@ -77,4 +77,46 @@ function quickSort(arr, compare) {
   }
 }
 
-module.exports = quickSort;
+function quickSort3(arr, compare) {
+  validateParams(arr, compare);
+  compare = compare || defaultCompare;
+  let len = arr.length;
+  helper(arr, 0, len - 1);
+  return arr;
+
+  function helper(arr, left, right) {
+    if (left >= right) return;
+    let p = partition(arr, left, right);
+    helper(arr, left, p.lt);
+    helper(arr, p.gt, right);
+  }
+
+  function partition(arr, left, right) {
+    swap(arr, left, getRandomIntInclusive(left, right));
+    // [left+1, lt]<arr[p]  [lt+1, i)==arr[p]   [gt, right]>arr[p]
+    let p = left;
+    let lt = left;
+    let gt = right + 1;
+    let i = left + 1;
+    while (i < gt) {
+      let c = compare(arr[p], arr[i]);
+      if (c > 0) {
+        swap(arr, lt + 1, i);
+        lt++;
+        i++;
+      } else if (c < 0) {
+        swap(arr, i, gt - 1);
+        gt--;
+      } else {
+        i++;
+      }
+    }
+    swap(arr, p, lt);
+    return {
+      lt: lt - 1,
+      gt: gt
+    };
+  }
+}
+
+module.exports = quickSort3;

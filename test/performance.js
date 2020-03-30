@@ -41,15 +41,17 @@ function test() {
           双路快排(6ms)
     10^5: 随机版快排(Maximum call stack size exceeded)
           双路快排(28ms)
+          三路快排(9ms)
     10^7: 双路快排(1586ms)
+          三路快排(355ms)
           原生sort(2857ms)
   */
-  let data = generateIntArr(Math.pow(10, 7), 0, 10);
+  let data = generateIntArr(Math.pow(10, 8), 0, 10);
   let time = calcTime(() => {
-    // quickSort(data);
-    data.sort((a, b) => {
-      return a - b;
-    });
+    quickSort(data);
+    // data.sort((a, b) => {
+    //   return a - b;
+    // });
   });
   console.log("排序时间：", time, "ms");
 }
