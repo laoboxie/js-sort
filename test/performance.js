@@ -32,7 +32,7 @@ function calcTime(fn) {
   return time;
 }
 
-function runAllSort(arr, exclude=[]) {
+function runAllSort(arr, exclude = []) {
   for (let i = 0; i < sortArr.length; i++) {
     if (exclude.includes(i)) {
       continue;
@@ -99,7 +99,7 @@ function test2() {
 
 function test() {
   // 测试随机整数数组
-  let n = 7
+  let n = 7;
   let data = generateIntArr(Math.pow(10, n), -Math.pow(10, n), Math.pow(10, n));
   runAllSort(data, [0, 1, 2]);
   // runOneSort(data, 1)
