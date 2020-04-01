@@ -1,6 +1,7 @@
 /*
   时间复杂度  O(n^2)
   空间复杂度  O(1)
+  是否稳定    否
 */
 
 const until = require("./until");

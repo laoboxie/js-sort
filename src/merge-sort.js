@@ -1,6 +1,7 @@
 /*
   时间复杂度  O(n*logn)
   空间复杂度  O(n)
+  是否稳定    是
 */
 
 const until = require("./until");
